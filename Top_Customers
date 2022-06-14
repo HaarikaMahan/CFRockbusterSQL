@@ -1,0 +1,19 @@
+SQL for querying top 10 customers 
+
+SELECT DISTINCT e.country, d.city, b.first_name, b.last_name, sum(a.amount) as total_amount
+FROM payment a
+INNER JOIN customer b ON a.customer_id = b.customer_id
+INNER JOIN address c ON b. address_id = c.address_id
+INNER JOIN city d ON c.city_id = d.city_id
+INNER JOIN country e ON d.country_id = e.country_id
+WHERE b.customer_id IN
+(SELECT b.customer_id
+FROM customer b, address c, city d, country e, payment a
+WHERE a.customer_id = b.customer_id
+AND b.address_id = c.address_id
+AND c.city_id = d.city_id
+AND d.country_id = e.country_id
+GROUP BY b.customer_id
+ORDER BY sum(a.amount) desc limit 10)
+GROUP BY e.country, d.city, b.customer_id
+ORDER BY sum(amount) DESC

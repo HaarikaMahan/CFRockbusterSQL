@@ -1,0 +1,18 @@
+The below SQL queries the Revenue and total customers for Rockbuster Stealth in each country
+
+SELECT a.country, count(distinct (b.customer_id)), total_revenue
+FROM country A, customer B, address C, City D,
+(SELECT j.country AS Country, SUM(amount) as total_revenue
+FROM payment f
+INNER JOIN customer g ON f.customer_id = g.customer_id
+INNER JOIN address h ON h.address_id = g.address_id
+INNER JOIN city i ON h.city_id = i.city_id
+INNER JOIN country j ON i.country_id = j.country_id
+GROUP BY j.country
+ORDER BY SUM(amount) DESC) total_revenue
+WHERE A.country_id = D.country_id
+AND D.city_id = C.city_id
+And c.address_id = B.address_id
+And total_revenue.country = A.country
+GROUP BY a.country, total_revenue.total_revenue
+ORDER BY count(distinct(b.customer_id)) desc

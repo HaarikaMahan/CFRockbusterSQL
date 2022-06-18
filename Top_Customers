@@ -17,3 +17,4 @@ GROUP BY b.customer_id
 ORDER BY sum(a.amount) desc limit 10)
 GROUP BY e.country, d.city, b.customer_id
 ORDER BY sum(amount) DESC
+

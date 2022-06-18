@@ -15,4 +15,4 @@ AND D.city_id = C.city_id
 And c.address_id = B.address_id
 And total_revenue.country = A.country
 GROUP BY a.country, total_revenue.total_revenue
-ORDER BY count(distinct(b.customer_id)) desc
+ORDER BY count(distinct(b.customer_id)) DESC

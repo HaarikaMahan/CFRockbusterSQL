@@ -14,8 +14,7 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 ## Context
 To answer the questions posed by the different departments, data is queried by using SQL. Throughout this project SQL is used to answer increasingly complex business questions. The results of the analysis will be presented to the Rockbuster management. Here is the visualization of the data analysed with insights.
 
-Rockbuster LLC. | Tableau Public
-![image](https://user-images.githubusercontent.com/107511180/174422157-51983ede-2ed3-478c-8133-7df8be676e3b.png)
+https://public.tableau.com/app/profile/haarika.mahankali/viz/RockbusterLLC_/Story1?publish=yes
 
 ## Data Set
 In this project, the data set that was used contains information about Rockbuster's film inventory, customers and payments among other things. Data set is loaded into PostgreSQL Database. 
